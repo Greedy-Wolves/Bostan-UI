@@ -4,6 +4,7 @@ import 'vuetify/dist/vuetify.min.css'
 import fa from 'vuetify/es5/locale/fa'
 
 Vue.use(Vuetify, {
+  rtl: true,
   iconfont: 'md',
   lang: {
     locales: { fa },
