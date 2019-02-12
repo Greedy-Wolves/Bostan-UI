@@ -1,4 +1,7 @@
 language: node_js
+node_js:
+  - "node"
+  - "10"
 
 script:
   - yarn lint
@@ -7,7 +10,6 @@ script:
 
 before_deploy:
   - tar czf dist.tar.gz dist/
-
 deploy:
   provider: releases
   api_key:
