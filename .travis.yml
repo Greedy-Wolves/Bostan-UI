@@ -1,0 +1,18 @@
+language: node_js
+
+script:
+  - yarn lint
+  - yarn test
+  - yarn build
+
+before_deploy:
+  - tar czf dist.tar.gz dist/
+
+deploy:
+  provider: releases
+  api_key:
+    secure: Fz/ORhlD10fR3bhmcvvVizxjKzmFm25Y38MbpPURVIwJpqetjhz68/63N6AUJdDS4uqpOVws9j+rwEmqwr8AKpxqv8Rfq7qLktFKA97k5oy/iblSK6QiWtMfgXebVkFuK27Pqkv1xuQP+4GokRgpfWyTahSS+cvVuNyr7CaUPmLlFaoxiIgPQNVmjkMFVYveNN99BFuz5JVfwskKoN5T76o0jD1H7pYfPrmn88Q9yyZOjkE3SoXBUUFaWdYzaONwzxiogZqOH7/BKGNXmdbqi0SAa0ddlzC6pDWp1jyne1S5S2dCMN/wWYptruBDS4xYBqaJ+cAascBwuzpStfsvTOH8FnhYHKYPutTLyfzPAmY/Q4io7+7KeS/nzula+t7gH3eLFZ+ys4CNDg9HyB/coaJMAOBZxV+jnAWXjiQK1XeJ1nzmaodAfG9ASVEGD4vayUN71TBFjeWcG8ilG3T5lnaV6JDmVVCmHWvNqhGP1TAkcjaYaZGFDivscxJeqMas/mGnS3dlteJwUnKiHJzZFxwVablJxTuMkg8crnde3wSwQNZMFE54pTZwSM76YpIDi2bAZaoH/6ehGqMhxXeBM9X9XsC/I0vIvjjjnx8b1ULtMlNMm1gKmBW4IxAQ+wJEbK4MSXtYWqxGAL4nIc2Zvpz5kpGeYSt0WNMyuQG5Pyw=
+  file: dist.tar.gz
+  skip_cleanup: true
+  on:
+    tags: true
